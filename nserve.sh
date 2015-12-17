@@ -1,4 +1,6 @@
 ngrokServeHomestead() {
+  port=8000
+  
   if [[ $# -eq 0 ]]; then
     previousLine=''
     currentDirectory=$(pwd)
@@ -12,10 +14,13 @@ ngrokServeHomestead() {
         previousLine=$line
     done < ~/Homestead/Homestead.yaml
   else
-    siteToServe=$1    
+    siteToServe=$1
+    if [[ $# == 2 ]]; then
+      port=$2
+    fi
   fi
 
-  ngrok http -host-header=$siteToServe 8000
+  ngrok http -host-header=$siteToServe $port
 }
 
 alias nserve=ngrokServeHomestead
