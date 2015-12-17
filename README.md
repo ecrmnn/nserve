@@ -1,2 +1,2 @@
 # nserve
-Quickly serve local sites using ngrok
+Quickly serve Homestead sites using ngrok
